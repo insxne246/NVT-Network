@@ -206,50 +206,6 @@ The binaries will be in the `src` folder when you are complete.
 4. `chown nobody:nogroup -R /var/log/oscillate`
 
 You will then make your json config. It will be placed in /etc/systemd/system/oscullated.service:
-It shoould look something like this 
-`[Unit]
-Description=Oscillated Full Node Service
-After=network.target
-
-[Service]
-Type=simple
-Restart=always
-User=nobody
-Group=nogroup
-WorkingDirectory=/opt/oscillate/build/src
-ExecStart=/opt/oscillate/build/src/oscillated \
-    --config-file /etc/oscillated.conf
-
-[Install]
-WantedBy=multi-user.target
-/etc/oscillated.conf:
-
-{
-  "add-exclusive-node": [],
-  "add-peer": [],
-  "add-priority-node": [],
-  "allow-local-ip": true,
-  "data-dir": "/storage/data/crypto/oscillate",
-  "db-max-open-files": 100,
-  "db-read-buffer-size": 10,
-  "db-threads": 2,
-  "db-write-buffer-size": 256,
-  "enable-blockexplorer": false,
-  "enable-cors": [],
-  "fee-address": "",
-  "fee-amount": 21916,
-  "hide-my-port": true,
-  "load-checkpoints": "default",
-  "log-file": "/var/log/oscillate/oscillated.log",
-  "log-level": 2,
-  "no-console": true,
-  "p2p-bind-ip": "0.0.0.0",
-  "p2p-bind-port": 11245,
-  "p2p-external-port": 0,
-  "rpc-bind-ip": "127.0.0.1",
-  "rpc-bind-port": 11246,
-  "seed-node": []
-}`
 
 Then after that run:
 `- systemctl enable oscillated.service`
