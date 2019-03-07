@@ -198,6 +198,63 @@ The binaries will be in the `src` folder when you are complete.
 - `cd src`
 - `./oscillated --version`
 
+
+#####SYSTEMD SERRVICE
+1. `mkdir /storage/data/crypto/oscillate`
+2. `chown nobody:nogroup -R /storage/data/crypto/oscillate`
+3. `mkdir /var/log/oscillate`
+4. `chown nobody:nogroup -R /var/log/oscillate`
+
+You will then make your json config. It will be placed in /etc/systemd/system/oscullated.service:
+It shoould look something like this 
+`[Unit]
+Description=Oscillated Full Node Service
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+User=nobody
+Group=nogroup
+WorkingDirectory=/opt/oscillate/build/src
+ExecStart=/opt/oscillate/build/src/oscillated \
+    --config-file /etc/oscillated.conf
+
+[Install]
+WantedBy=multi-user.target
+/etc/oscillated.conf:
+
+{
+  "add-exclusive-node": [],
+  "add-peer": [],
+  "add-priority-node": [],
+  "allow-local-ip": true,
+  "data-dir": "/storage/data/crypto/oscillate",
+  "db-max-open-files": 100,
+  "db-read-buffer-size": 10,
+  "db-threads": 2,
+  "db-write-buffer-size": 256,
+  "enable-blockexplorer": false,
+  "enable-cors": [],
+  "fee-address": "",
+  "fee-amount": 21916,
+  "hide-my-port": true,
+  "load-checkpoints": "default",
+  "log-file": "/var/log/oscillate/oscillated.log",
+  "log-level": 2,
+  "no-console": true,
+  "p2p-bind-ip": "0.0.0.0",
+  "p2p-bind-port": 11245,
+  "p2p-external-port": 0,
+  "rpc-bind-ip": "127.0.0.1",
+  "rpc-bind-port": 11246,
+  "seed-node": []
+}`
+
+Then after that run:
+`- systemctl enable oscillated.service`
+`- systemctl start oscillated.service`
+
 #### Thanks
 Cryptonote Developers, Bytecoin Developers, Monero Developers, Forknote Project, TurtleCoin Community
 
@@ -205,7 +262,7 @@ Cryptonote Developers, Bytecoin Developers, Monero Developers, Forknote Project,
 
 Hi TurtleCoin contributor, thanks for forking and sending back Pull Requests. Extensive docs about contributing are in the works or elsewhere. For now this is the bit we need to get into all the files we touch. Please add it to the top of the files, see [src/CryptoNoteConfig.h](https://github.com/turtlecoin/turtlecoin/commit/28cfef2575f2d767f6e512f2a4017adbf44e610e) for an example.
 
-```
+
 // Copyright (c) 2012-2017, The CryptoNote developers, The Bytecoin developers
 // Copyright (c) 2014-2018, The Monero Project
 // Copyright (c) 2018, The TurtleCoin Developers
