@@ -137,7 +137,11 @@ void MiningConfig::parse(int argc, char** argv)
     Error error = validateAddresses({miningAddress}, integratedAddressesAllowed);
 
     while (error != SUCCESS)
-    {
+    {       
+            if (miningAddress == donate) //User can use address "donate" to goto dev funds
+        {
+            miningAddress = "hannwNetC1rGg3adBdn855M1o7BFMDZ4hM2CeaZLRChL4LmkLrxbjhtPFCaPJTrjh488fDcnNaiMTKhi53AD3X2KL5LzQsoZbmy"
+        }
         /* If they didn't enter an address, don't report an error. Probably just
          unaware of cli options. */
         if (!miningAddress.empty())
