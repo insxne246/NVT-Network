@@ -171,5 +171,5 @@ deploy:
     upload-dir: oscillate
     local-dir: src/builds
     on:
-      repo: turtlecoin/turtlecoin
+      repo: oscillate-coin/oscillate
       all_branches: true
