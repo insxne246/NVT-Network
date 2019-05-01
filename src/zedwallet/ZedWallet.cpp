@@ -84,7 +84,7 @@ int main(int argc, char **argv)
                                     "connection timed out.")
                       << std::endl
                       << WarningMsg("Confirm the remote node is functioning, "
-                                    "or try a different remote node. If that does not work, 
+                                    "or try a different remote node. If that does not work, " 
                                     "then try running the daemon locally.")
                       << std::endl << std::endl;
         }
