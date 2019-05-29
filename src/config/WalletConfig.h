@@ -13,7 +13,7 @@ namespace WalletConfig
     const std::string_view addressPrefix = "hann";
 
     /* Your coins 'Ticker', e.g. Monero = XMR, Bitcoin = BTC */
-    const std::string ticker = "OSC";
+    const std::string ticker = "OSL";
 
     /* The filename to output the CSV to in save_csv */
     const std::string csvFilename = "transactions.csv";
@@ -23,10 +23,10 @@ namespace WalletConfig
     const std::string addressBookFilename = ".addressBook.json";
 
     /* The name of your deamon */
-    const std::string daemonName = "oscillated";
+    const std::string daemonName = "oscillate-daemon";
 
     /* The name to call this wallet */
-    const std::string walletName = "zedwallet";
+    const std::string walletName = "oscillate-wallet";
 
     /* The name of service/walletd, the programmatic rpc interface to a
        wallet */
