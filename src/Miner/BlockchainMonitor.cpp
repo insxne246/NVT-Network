@@ -92,7 +92,8 @@ std::optional<Crypto::Hash> BlockchainMonitor::requestLastBlockHash()
     if (!res)
     {
         std::cout << WarningMsg("Failed to get block hash - Is your daemon open?\n");
-        std::cout << WarningMsg("If daemon is open, try making a batch script\m");
+        std::cout << WarningMsg("If daemon is open, try making a batch script\n");
+        std::cout <<  WarningMsg("\n");
 
         return std::nullopt;
     }

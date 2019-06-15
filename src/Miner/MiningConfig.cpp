@@ -137,7 +137,7 @@ void MiningConfig::parse(int argc, char** argv)
     Error error = validateAddresses({miningAddress}, integratedAddressesAllowed);
 
     while (error != SUCCESS)
-    {
+    {       
         /* If they didn't enter an address, don't report an error. Probably just
          unaware of cli options. */
         if (!miningAddress.empty())

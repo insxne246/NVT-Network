@@ -71,6 +71,11 @@ void Miner::runWorkers(BlockMiningParameters blockMiningParameters, size_t threa
 {
     std::cout << InformationMsg("Started mining for difficulty of ")
               << InformationMsg(blockMiningParameters.difficulty)
+              << InformationMsg("\n")
+              << InformationMsg("The Current network hashrate is ")
+              << InformationMsg(blockMiningParameters.difficulty / 60 / 1000)
+              << InformationMsg(" K/hs")
+              << InformationMsg("\n")
               << InformationMsg(". Good luck! ;)\n");
 
     try
