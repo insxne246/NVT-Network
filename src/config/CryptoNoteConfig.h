@@ -250,15 +250,15 @@ const uint64_t DATABASE_READ_BUFFER_MB_DEFAULT_SIZE          = 10;
 const uint32_t DATABASE_DEFAULT_MAX_OPEN_FILES               = 100;
 const uint16_t DATABASE_DEFAULT_BACKGROUND_THREADS_COUNT     = 2;
 
-const char     LATEST_VERSION_URL[]                          = "https://oscillate-coin.github.io/";
-const std::string LICENSE_URL                                = "https://github.com/turtlecoin/turtlecoin/blob/master/LICENSE";
+const char     LATEST_VERSION_URL[]                          = "";
+const std::string LICENSE_URL                                = "";
 const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 {
     {  0xC5, 0x0c, 0x4a, 0x6c, 0x41, 0x37, 0x57, 0xa7, 0x65, 0xf3, 0x95, 0xa4, 0xb3, 0xc1, 0x14, 0x5  }
 };
 
 const char* const SEED_NODES[] = {
-  "", //node1
-  " " //node2
+  "159.203.95.84:10450", //node1
+  "165.22.147.46:10450" //node2
 };
 } // CryptoNote
