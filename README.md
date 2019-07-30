@@ -1,13 +1,8 @@
-![image](https://i.imgur.com/slgz2tk.png)
 
 
 
 
-### Installing
 
-We offer Pre-Compiled Windows binaries of the latest releases here: https://oscillate-coin.github.io/
-
-If you would like to compile yourself, read on.
 
 ### How To Compile
 
@@ -32,8 +27,8 @@ If you are using Clang, you will need Clang 6.0 or higher. You will also need li
 - `sudo pip install cmake`
 - `export CC=gcc-8`
 - `export CXX=g++-8`
-- `git clone -b development --single-branch https://github.com/oscillate-coin/oscillate/`
-- `cd oscillate`
+- `git clone -b development --single-branch https://github.com/insxne246/NVT-Network/`
+- `cd NVT-Network`
 - `mkdir build`
 - `cd build`
 - `cmake ..`
@@ -42,7 +37,7 @@ If you are using Clang, you will need Clang 6.0 or higher. You will also need li
 The binaries will be in the `src` folder when you are complete.
 
 - `cd src`
-- `./oscillated --version`
+- `./nvt-daemon --version`
 
 ##### Ubuntu, using Clang
 
@@ -76,7 +71,7 @@ You need to modify the below command for your version of ubuntu - see https://ap
 The binaries will be in the `src` folder when you are complete.
 
 - `cd src`
-- `./oscillated --version`
+- `./nvt-daemon --version`
 
 ##### Generic Linux
 
@@ -85,136 +80,14 @@ Ensure you have the dependencies listed above.
 If you want to use clang, ensure you set the environment variables `CC` and `CXX`.
 See the ubuntu instructions for an example.
 
-- `git clone -b development --single-branch https://github.com/oscillate-coin/oscillate/`
-- `cd oscillate`
+- `git clone -b development --single-branch https://github.com/insxne246/NVT-Network/`
+- `cd NVT-Network`
 - `mkdir build`
 - `cd build`
 - `cmake ..`
 - `make`
 
-The binaries will be in the `src` folder when you are complete.
 
-- `cd src`
-- `./oscillated --version`
-
-#### OSX/Apple, using GCC
-
-##### Prerequisites
-
-- Install XCode and Developer Tools.
-
-##### Building
-
-- `which brew || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-- `brew install --force cmake boost llvm gcc@8`
-- `export CC=gcc-8`
-- `export CXX=g++-8`
-- `git clone -b development --single-branch https://github.com/oscillate-coin/oscillate/`
-- `cd oscillate`
-- `mkdir build`
-- `cd build`
-- `cmake ..`
-- `make`
-
-The binaries will be in the `src` folder when you are complete.
-
-- `cd src`
-- `./oscillated --version`
-
-#### OSX/Apple, using Clang
-
-##### Prerequisites
-
-- Install XCode and Developer Tools.
-
-##### Building
-
-- `which brew || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-- `brew install --force cmake boost llvm`
-- `export CC=/usr/local/opt/llvm/bin/clang`
-- `export CXX=/usr/local/opt/llvm/bin/clang++`
-- `git clone -b development --single-branch https://github.com/oscillate-coin/oscillate/`
-- `cd oscillate`
-- `mkdir build`
-- `cd build`
-- `cmake ..`
-- `make`
-
-The binaries will be in the `src` folder when you are complete.
-
-- `cd src`
-- `./oscillated --version`
-
-
-#### Windows
-
-##### Prerequisites
-
-- Install [Visual Studio 2017 Community Edition](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15&page=inlineinstall)
-- When installing Visual Studio, it is **required** that you install **Desktop development with C++**
-- Install the latest version of [Boost](https://bintray.com/boostorg/release/download_file?file_path=1.68.0%2Fbinaries%2Fboost_1_68_0-msvc-14.1-64.exe) - Currently Boost 1.68.
-
-##### Building
-
-- From the start menu, open 'x64 Native Tools Command Prompt for vs2017'.
-- `cd <your_oscillate_directory>`
-- `mkdir build`
-- `cd build`
-- `set PATH="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin";%PATH%`
-- `cmake -G "Visual Studio 15 2017 Win64" .. -DBOOST_ROOT=C:/local/boost_1_68_0`
-
-If you have errors on this step about not being able to find the following static libraries, you may need to update your cmake. Open 'Visual Studio Installer' and click 'Update'.
-
-- `MSBuild TurtleCoin.sln /p:Configuration=Release /m`
-
-The binaries will be in the `src/Release` folder when you are complete.
-
-- `cd src`
-- `cd Release`
-- `oscillated.exe --version`
-
-#### Raspberry Pi 3 B+ (AARCH64/ARM64)
-The following images are known to work. Your operation system image **MUST** be 64 bit.
-
-##### Known working images
-
-- https://github.com/Crazyhead90/pi64/releases
-- https://fedoraproject.org/wiki/Architectures/ARM/Raspberry_Pi#aarch64_supported_images_for_Raspberry_Pi_3
-- https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
-
-Once you have a 64 bit image installed, setup proceeds the same as any Linux distribution. Ensure you have at least 2GB of ram, or the build is likely to fail. You may need to setup swap space.
-
-##### Building
-
-- `git clone -b development --single-branch https://github.com/oscillate-coin/oscillate/`
-- `cd oscillate`
-- `mkdir build`
-- `cd build`
-- `cmake ..`
-- `make`
-
-The binaries will be in the `src` folder when you are complete.
-
-- `cd src`
-- `./oscillated --version`
-
-
-#####SYSTEMD SERRVICE
-1. `mkdir /storage/data/crypto/oscillate`
-2. `chown nobody:nogroup -R /storage/data/crypto/oscillate`
-3. `mkdir /var/log/oscillate`
-4. `chown nobody:nogroup -R /var/log/oscillate`
-
-You will then make your json config. It will be placed in /etc/systemd/system/oscullated.service:
-
-Then after that run:
-`- systemctl enable oscillated.service`
-`- systemctl start oscillated.service`
-
-#### Thanks
-Cryptonote Developers, Bytecoin Developers, Monero Developers, Forknote Project, TurtleCoin Community
-
-### Copypasta for license when editing files
 
 Hi TurtleCoin contributor, thanks for forking and sending back Pull Requests. Extensive docs about contributing are in the works or elsewhere. For now this is the bit we need to get into all the files we touch. Please add it to the top of the files, see [src/CryptoNoteConfig.h](https://github.com/turtlecoin/turtlecoin/commit/28cfef2575f2d767f6e512f2a4017adbf44e610e) for an example.
 
